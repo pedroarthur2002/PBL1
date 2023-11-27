@@ -1,4 +1,4 @@
-#VARIÁVEIS
+#DECLARAÇÃO DE VARIÁVEIS
 contador = 0
 posto_1= input('Digite o nome do primeiro posto: ')
 gasolina_1= float(input('Digite o valor da gasolina no primeiro posto: '))
@@ -40,7 +40,7 @@ maior_gasolina = 0
 maior_etanol = 0
 maior_diesel = 0
 
-#MENU
+#AQUI COMEÇA O MENU, o laço vai quebrar quando o usuário digitar a opção para sair do programa
 while True:
     print('1)INSERIR O COMBUSTÍVEL DE SUA PREFERÊNCIA E QUANTOS LITROS QUER ABASTECER')
     print('2)MOSTRAR OS DADOS DA PESQUISA E DO POSTO COM RESULTADO MENOR')
@@ -75,6 +75,7 @@ while True:
         preço_diesel_1 = motorista_litros*diesel_1
         preço_diesel_2 = motorista_litros*diesel_2
         preço_diesel_3 = motorista_litros*diesel_3
+        #Esse algoritmo determina o combustível com menor preço, há três tipos de combustíveis(gasolina, etanol e diesel) 
         if motorista_combustivel == 1:                        
             if gasolina_1 < gasolina_2 and gasolina_1 < gasolina_3:
                 contador_gasolina_1 += 1
@@ -156,6 +157,7 @@ while True:
             print('-'*50)
         else:
             print('')
+            #Esse algoritmo é análogo ao algoritmo anterior
             if motorista_combustivel == 1:            
                 if gasolina_1 < gasolina_2 and gasolina_1 < gasolina_3:             
                     print(f'O posto com a gasolina mais barata é o posto {posto_1} cujo preço é de R${(gasolina_1):.2f}/L')
@@ -195,7 +197,7 @@ while True:
                     print(f'O posto com o diesel mais barato é o posto {posto_3} cujo preço é de R${(diesel_3):.2f}/L')
                     print(f'O valor pago foi de R${(preço_diesel_3):.2f}')                 
                     print('-'*50)    
-#COMENTÁRIO                 
+    #Essa opção mostra os dados de todos os postos                
     if opçoes == 3:
         print(f'Posto {posto_1}')
         print(f'Gasolina: R${gasolina_1:.2f}')
@@ -216,7 +218,7 @@ while True:
         print('Você escolheu sair do menu!\n')
         break
     
-#RELATÓRIO
+#Esse é o relatório, mostra algumas informações que são facilmente verificáveis ao ler os prints
 while True:
     if contador == 0:
         print('Para ler o relatório, você deve digitar valores na primeira opção.')
@@ -230,6 +232,7 @@ while True:
             print(f'Quantidade de consultas realizadas no sistema: {contador}')
             print(f'Quantidade de vezes que o posto {posto_1} teve o menor valor de combustível: {contador_gasolina_1 + contador_etanol_1 + contador_diesel_1}')
             print(f'Quantidade de vezes que o posto {posto_2} teve o menor valor de combustível: {contador_gasolina_2 + contador_etanol_2 + contador_diesel_2}')
+            #Esse algoritmo determina a média de litros por consulta em cada posto
             print(f'Quantidade de vezes que o posto {posto_3} teve o menor valor de combustível: {contador_gasolina_3 + contador_etanol_3 + contador_diesel_3}')
             if (contador_gasolina_1 + contador_etanol_1 + contador_diesel_1) != 0:
                 print(f'A média de litros consultados do posto {posto_1} foi de {((soma_gasolina_1 + soma_etanol_1 + soma_diesel_1)/(contador_gasolina_1 + contador_etanol_1 + contador_diesel_1)):.2f}')
@@ -243,6 +246,7 @@ while True:
                 print(f'A média de litros consultados do posto {posto_3} foi de {((soma_gasolina_3 + soma_etanol_3 + soma_diesel_3)/(contador_gasolina_3 + contador_etanol_3 + contador_diesel_3)):.2f}')
             else:            
                 print(f'O posto {posto_3} não teve o menor valor em nenhuma consulta!')
+            #Esse algoritmo determina o maior e menor valor de cada combustível, considerando que os valores são todos diferentes 
             maior_gasolina = gasolina_1    
             if gasolina_2 > gasolina_1 and gasolina_2 > gasolina_3:
                 maior_gasolina = gasolina_2
